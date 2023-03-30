@@ -15,8 +15,10 @@ public class ScoreValidator implements ConstraintValidator<Score, String> {
         "D+", "D", "D-",
         "F"
     );
+    
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value == null) return false;
         for (String string : scores) {
             if (value.equals(string)) return true;
         }
